@@ -5,10 +5,19 @@ interface Props {
   frontmatter: {
     title: string;
     image: string;
+    date: string;
   };
 }
 
 const { frontmatter } = Astro.props;
+const localDate = new Date(frontmatter.date)
+  .toLocaleDateString("es-ES", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  })
+  .replaceAll("de", "")
+  .toLocaleUpperCase();
 ---
 
 <!doctype html>
@@ -26,18 +35,25 @@ const { frontmatter } = Astro.props;
       <Nav />
     </header>
 
-    <main class="w-full flex flex-col items-center">
-      <h1
-        class="text-5xl max-w-screen-lg text-white w-full text-center font-bold my-20"
-      >
-        {frontmatter.title}
-      </h1>
-      <img src={`/post-images/${frontmatter.image}`} alt="" class="" />
+    <main class="w-full flex flex-col items-center md:p-5">
+      <div class="flex flex-col gap-20 items-center px-10 my-20">
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl max-w-screen-lg text-white w-full text-center"
+        >
+          {frontmatter.title}
+        </h1>
+        <p class="text-primary font-bold text-lg">{localDate}</p>
+      </div>
+      <img
+        src={`/post-images/${frontmatter.image}`}
+        alt=""
+        class="lg:rounded-md max-w-screen-xl w-full"
+      />
       <section
-        class="p-20 max-w-screen-lg rounded-md relative top-[-200px] bg-background-100 prose-lg dark:prose-invert
-      prose-h1:font-bold prose-h1:text-xl
-      prose-a:text-blue-600 prose-img:rounded-xl
-      prose-headings:underline"
+        class:list={[
+          "px-10 py-10 lg:px-20  lg:py-16 max-w-screen-lg w-full lg:rounded-md font-sans bg-background-100  lg:relative lg:top-[-200px]",
+          " prose-lg dark:prose-invert prose-h1:font-bold prose-h1:text-xl prose-a:text-blue-600 prose-img:rounded-xl prose-headings:underline",
+        ]}
       >
         <slot />
       </section>
