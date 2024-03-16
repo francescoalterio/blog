@@ -3,6 +3,7 @@ layout: ../../layouts/PostLayout.astro
 title: Aprende el patrón Singleton en Javascript y Typescript
 description: El patrón de diseño Singleton es sin duda el más conocido y famoso de todos los patrones de diseño. 
 image: singleton.jpg
+date: 2024-03-16
 ---
 El patrón de diseño Singleton es sin duda el más conocido y famoso de todos los patrones de diseño. El patrón de diseño Singleton se basa en una clase que solo puede ser instanciada una sola vez y que se puede acceder a dicha instancia globalmente, lo que lo hace excelente para la administración de un estado global.
 Lo primero que haremos es crear una clase que sea capaz de manejar un contador.
@@ -110,7 +111,11 @@ class Counter {
 ```
 
 Con todos estos cambios podemos apreciar que ya no necesitamos instanciar la clase Counter y mucho menos congelarla ya que los modificadores de acceso y el método getInstance se encargan de todo el trabajo.
-Desventajas
+
+## Desventajas
+
 Javascript posee una característica que otros lenguajes no poseen que es la creación de objetos literales, haciendo que los ejemplos anteriormente mencionados sean un poco exagerados, ya que podríamos crear directamente el objeto y exportarlo.
+
 Las variables globales muchas veces pueden considerarse una muy mala decisión de diseño, sobre todo en aplicaciones robustas o de un gran tamaño, puesto que se podría sobrescribir accidentalmente el valor de la variable global desencadenando comportamientos no deseados.
+
 En conclusión, el patrón de diseño Singleton es bastante sencillo de implementar, pero sus casos de uso son bastante escasos y muchos desarrolladores lo consideran un anti patrón, ya que el uso de variables globales podría complicar la lógica de la aplicación de una forma innecesaria.
