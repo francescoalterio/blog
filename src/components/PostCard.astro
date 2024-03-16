@@ -1,0 +1,15 @@
+---
+const { title, description, image, url } = Astro.props;
+console.log({ title, description });
+---
+
+<a
+  href={url}
+  class="block flex-1 min-w-64 bg-background-100 rounded-md hover:scale-105 transition-all outline outline-2 outline-transparent -outline-offset-2 hover:outline-primary hover:outline-offset-4"
+>
+  <img src={`/public/post-images/${image}`} alt="" class="rounded-t-md" />
+  <article class="flex flex-col gap-3 p-8">
+    <h2 class="font-bold text-lg">{title}</h2>
+    <p class="font-light text-sm">{description}</p>
+  </article>
+</a>
