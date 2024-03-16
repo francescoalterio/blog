@@ -1,0 +1,45 @@
+---
+import Nav from "../components/Nav.astro";
+
+interface Props {
+  frontmatter: {
+    title: string;
+    image: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/public/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{frontmatter.title}</title>
+  </head>
+  <body class="flex flex-col items-center bg-background-200 text-white">
+    <header class="w-full flex justify-center">
+      <Nav />
+    </header>
+
+    <main class="w-full flex flex-col items-center">
+      <h1 class="text-3xl text-white w-full text-center font-bold my-20">
+        {frontmatter.title}
+      </h1>
+      <img src={`/public/post-images/${frontmatter.image}`} alt="" class="" />
+      <section
+        class="p-20 max-w-screen-lg rounded-md relative top-[-200px] bg-background-100 prose-lg dark:prose-invert
+      prose-h1:font-bold prose-h1:text-xl
+      prose-a:text-blue-600 prose-img:rounded-xl
+      prose-headings:underline"
+      >
+        <slot />
+      </section>
+    </main>
+  </body>
+</html>
+<style is:global></style>
