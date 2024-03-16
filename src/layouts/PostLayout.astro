@@ -1,5 +1,6 @@
 ---
 import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
 
 interface Props {
@@ -61,6 +62,6 @@ const localDate = new Date(frontmatter.date)
         <slot />
       </section>
     </main>
-    <style is:global></style>
+    <Footer />
   </body>
 </html>
