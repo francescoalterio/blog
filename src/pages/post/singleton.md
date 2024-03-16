@@ -2,7 +2,7 @@
 layout: ../../layouts/PostLayout.astro
 title: Aprende el patrón Singleton en Javascript y Typescript
 description: El patrón de diseño Singleton es sin duda el más conocido y famoso de todos los patrones de diseño. 
-image: singleton.jpg
+image: singleton.avif
 date: 2024-03-16
 ---
 El patrón de diseño Singleton es sin duda el más conocido y famoso de todos los patrones de diseño. El patrón de diseño Singleton se basa en una clase que solo puede ser instanciada una sola vez y que se puede acceder a dicha instancia globalmente, lo que lo hace excelente para la administración de un estado global.

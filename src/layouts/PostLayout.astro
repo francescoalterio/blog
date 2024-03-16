@@ -1,5 +1,6 @@
 ---
 import Nav from "../components/Nav.astro";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   frontmatter: {
@@ -26,9 +27,10 @@ const localDate = new Date(frontmatter.date)
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/circle-profile.webp" />
     <meta name="generator" content={Astro.generator} />
     <title>{frontmatter.title}</title>
+    <ViewTransitions />
   </head>
   <body class="flex flex-col items-center bg-background-200 text-white">
     <header class="w-full flex justify-center">
@@ -48,6 +50,7 @@ const localDate = new Date(frontmatter.date)
         src={`/post-images/${frontmatter.image}`}
         alt=""
         class="lg:rounded-md max-w-screen-xl w-full"
+        transition:name="post-image"
       />
       <section
         class:list={[
@@ -58,6 +61,6 @@ const localDate = new Date(frontmatter.date)
         <slot />
       </section>
     </main>
+    <style is:global></style>
   </body>
 </html>
-<style is:global></style>
