@@ -11,7 +11,7 @@ console.log({ title, description });
     src={`/post-images/${image}`}
     alt=""
     class="rounded-t-md"
-    transition:name="post-image"
+    transition:name={`post-image-${url}`}
   />
   <article class="flex flex-col gap-3 p-8">
     <h2 class="font-bold text-lg">{title}</h2>

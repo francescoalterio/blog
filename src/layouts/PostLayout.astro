@@ -8,6 +8,7 @@ interface Props {
     title: string;
     image: string;
     date: string;
+    url: string;
   };
 }
 
@@ -51,7 +52,7 @@ const localDate = new Date(frontmatter.date)
         src={`/post-images/${frontmatter.image}`}
         alt=""
         class="lg:rounded-md max-w-screen-xl w-full"
-        transition:name="post-image"
+        transition:name={`post-image-${frontmatter.url}`}
       />
       <section
         class:list={[
