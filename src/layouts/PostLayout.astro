@@ -9,10 +9,13 @@ interface Props {
     image: string;
     date: string;
     url: string;
+    description: string;
+    keywords: string;
   };
+  url: string;
 }
 
-const { frontmatter } = Astro.props;
+const { frontmatter, url } = Astro.props;
 const localDate = new Date(frontmatter.date)
   .toLocaleDateString("es-ES", {
     year: "numeric",
@@ -32,6 +35,22 @@ const localDate = new Date(frontmatter.date)
     <link rel="icon" type="image/svg+xml" href="/circle-profile.webp" />
     <meta name="generator" content={Astro.generator} />
     <title>{frontmatter.title}</title>
+    <meta name="description" content={frontmatter.description} />
+    <meta name="keywords" content={frontmatter.keywords} />
+    <meta name="author" content="Francesco Alterio" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#000000" />
+    <meta property="og:title" content={frontmatter.title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={frontmatter.description} />
+    <meta
+      property="og:url"
+      content={`https://blog.francescoalterio.com${url}`}
+    />
+    <meta
+      property="og:image"
+      content={`https://blog.francescoalterio.com/post-images/${frontmatter.image}`}
+    />
     <ViewTransitions />
   </head>
   <body class="flex flex-col items-center bg-background-200 text-white">

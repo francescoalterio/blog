@@ -12,7 +12,7 @@ interface Frontmatter {
 const posts = await Astro.glob<Frontmatter>("./post/*.md");
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout>
   <section class="w-full flex flex-col items-center gap-5 my-20">
     <Profile />
     <h1 class="text-white font-bold text-4xl">Francesco Alterio</h1>
