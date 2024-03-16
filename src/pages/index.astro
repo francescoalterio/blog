@@ -10,10 +10,6 @@ interface Frontmatter {
 }
 
 const posts = await Astro.glob<Frontmatter>("./post/*.md");
-const multipliedPosts = [];
-for (let i = 0; i < 10; i++) {
-  multipliedPosts.push(...posts);
-}
 ---
 
 <Layout title="Welcome to Astro.">
@@ -24,7 +20,7 @@ for (let i = 0; i < 10; i++) {
   </section>
   <section class="flex flex-wrap justify-between gap-8 px-6 sm:px-10">
     {
-      multipliedPosts.map(({ frontmatter, url }) => (
+      posts.map(({ frontmatter, url }) => (
         <PostCard
           title={frontmatter.title}
           description={frontmatter.description}
