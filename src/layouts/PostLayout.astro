@@ -27,7 +27,9 @@ const { frontmatter } = Astro.props;
     </header>
 
     <main class="w-full flex flex-col items-center">
-      <h1 class="text-3xl text-white w-full text-center font-bold my-20">
+      <h1
+        class="text-5xl max-w-screen-lg text-white w-full text-center font-bold my-20"
+      >
         {frontmatter.title}
       </h1>
       <img src={`/post-images/${frontmatter.image}`} alt="" class="" />
